@@ -21,7 +21,7 @@
         }
     ],
     "require": {
-        "amphp/amp": "^2",
+        "amphp/amp": "dev-debug-coroutine as 2.0.5",
         "amphp/byte-stream": "^1.1",
         "amphp/parser": "^1",
         "amphp/process": "^0.2 || ^0.3",
