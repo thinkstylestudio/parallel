@@ -39,18 +39,18 @@ abstract class AbstractPoolTest extends TestCase {
     }
 
     public function testGetMinSize() {
-        $pool = $this->createPool(7, 24);
-        $this->assertEquals(7, $pool->getMinSize());
+        $pool = $this->createPool(1, 8);
+        $this->assertEquals(1, $pool->getMinSize());
     }
 
     public function testGetMaxSize() {
-        $pool = $this->createPool(3, 17);
-        $this->assertEquals(17, $pool->getMaxSize());
+        $pool = $this->createPool(1, 8);
+        $this->assertEquals(8, $pool->getMaxSize());
     }
 
     public function testMinWorkersSpawnedOnStart() {
         Loop::run(function () {
-            $pool = $this->createPool(8, 32);
+            $pool = $this->createPool(2, 4);
             $pool->start();
 
             $this->assertEquals(8, $pool->getWorkerCount());
@@ -61,10 +61,10 @@ abstract class AbstractPoolTest extends TestCase {
 
     public function testWorkersIdleOnStart() {
         Loop::run(function () {
-            $pool = $this->createPool(8, 32);
+            $pool = $this->createPool(2, 8);
             $pool->start();
 
-            $this->assertEquals(8, $pool->getIdleWorkerCount());
+            $this->assertEquals(2, $pool->getIdleWorkerCount());
 
             yield $pool->shutdown();
         });
