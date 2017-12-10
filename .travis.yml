@@ -14,7 +14,7 @@ matrix:
   fast_finish: true
 
 env:
-  - AMP_DEBUG=true
+  - AMP_DEBUG=false
 
 before_install:
   - phpenv config-rm xdebug.ini || echo "No xdebug config."
