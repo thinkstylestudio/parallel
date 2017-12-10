@@ -31,7 +31,7 @@ install:
   - IF %PHP%==1 echo extension=php_fileinfo.dll >> php.ini
   - php --ini
   - php -v
-  - get-content C:\Tools\php72\php.ini
+  - type C:\Tools\php72\php.ini
   - cd c:\projects\amphp
   - appveyor DownloadFile https://getcomposer.org/composer.phar
   - php composer.phar install --prefer-dist --no-progress
